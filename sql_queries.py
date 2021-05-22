@@ -2,7 +2,7 @@
 
 songplay_table_drop = ""
 user_table_drop = ""
-song_table_drop = ""
+song_table_drop = "DROP TABLE IF EXISTS songs"
 artist_table_drop = ""
 time_table_drop = ""
 
@@ -15,6 +15,13 @@ user_table_create = ("""
 """)
 
 song_table_create = ("""
+    CREATE TABLE IF NOT EXISTS songs (
+        song_id varchar PRIMARY KEY, 
+        title varchar, 
+        artist_id varchar, 
+        year int, 
+        duration numeric
+    )
 """)
 
 artist_table_create = ("""
@@ -32,6 +39,8 @@ user_table_insert = ("""
 """)
 
 song_table_insert = ("""
+    INSERT INTO SONGS (song_id, title, artist_id, year, duration)
+    VALUES ( %s, %s, %s, %s, %s)
 """)
 
 artist_table_insert = ("""
