@@ -68,4 +68,9 @@ First you must execute the follow script:
 ```console
 $ python3 create_tables.py
 ```
-It will create all the database and tables needed to run the ETL process for Sparkfy.
+It will create all the database and tables needed to run the ETL process for Sparkfy. Than, we need to run the scripty responsible for the ETL:
+```console
+$ python3 etl.py
+```
+This command starts the ETL process and gather data from `./data/log_data/` and `./data/song_data/` to store them in Postgres database based on the database modeling presented.
+Last, but not least we should run `test.ipynb` to take the query results and to confirm whether the process have worked.
