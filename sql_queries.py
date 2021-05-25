@@ -1,10 +1,10 @@
 # DROP TABLES
 
-songplay_table_drop = "DROP TABLE IF EXISTS songplays"
-user_table_drop = "DROP TABLE IF EXISTS users"
-song_table_drop = "DROP TABLE IF EXISTS songs"
-artist_table_drop = "DROP TABLE IF EXISTS artists"
-time_table_drop = "DROP TABLE IF EXISTS time"
+songplay_table_drop = "DROP TABLE IF EXISTS songplays;"
+user_table_drop = "DROP TABLE IF EXISTS users;"
+song_table_drop = "DROP TABLE IF EXISTS songs;"
+artist_table_drop = "DROP TABLE IF EXISTS artists;"
+time_table_drop = "DROP TABLE IF EXISTS time;"
 
 # CREATE TABLES
 
@@ -18,7 +18,7 @@ songplay_table_create = ("""
         session_id VARCHAR PRIMARY KEY,
         location VARCHAR,
         user_agent VARCHAR
-    )
+    );
 """)
 
 user_table_create = ("""
@@ -28,7 +28,7 @@ user_table_create = ("""
         last_name VARCHAR,
         gender char,
         level VARCHAR
-    )
+    );
 """)
 
 song_table_create = ("""
@@ -38,7 +38,7 @@ song_table_create = ("""
         artist_id VARCHAR, 
         year int, 
         duration NUMERIC
-    )
+    );
 """)
 
 artist_table_create = ("""
@@ -46,9 +46,9 @@ artist_table_create = ("""
         artist_id VARCHAR PRIMARY KEY, 
         artist_name VARCHAR, 
         artist_location VARCHAR,
-        artist_latitude NUMERIC,
-        artist_longitude NUMERIC
-    )
+        artist_latitude FLOAT,
+        artist_longitude FLOAT
+    );
 """)
 
 time_table_create = ("""
@@ -60,7 +60,7 @@ time_table_create = ("""
         month int,
         year int,
         weekday int
-    )
+    );
 """)
 
 # INSERT RECORDS
@@ -106,11 +106,11 @@ song_select = ("""
         songs
     JOIN
         artists
-        ON artists.artist_id = songs.artist_id
+        ON songs.artist_id = artists.artist_id
     WHERE
-        artists.artist_name = %s
-        AND songs.title = %s
-        AND songs.duration = %s
+        songs.title = %s
+        AND artists.artist_name = %s
+        AND songs.duration = %s;
 """)
 
 # QUERY LISTS
