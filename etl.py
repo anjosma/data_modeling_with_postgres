@@ -43,7 +43,7 @@ def process_log_file(cur, filepath):
     
     # insert time data records
     time_data = (t, t.dt.hour, t.dt.day, t.dt.weekofyear, t.dt.month, t.dt.year, t.dt.weekday)
-    column_labels = ("timestamp", 'hour', 'day', 'weekofyear', 'month', 'year', 'weekday')
+    column_labels = ("start_time", 'hour', 'day', 'weekofyear', 'month', 'year', 'weekday')
 
     dict_time = dict(zip(column_labels, time_data))
     time_df = pd.DataFrame(dict_time)
